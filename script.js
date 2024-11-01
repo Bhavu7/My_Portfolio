@@ -94,3 +94,163 @@ window.onload = function () {
     ".typewrite > .wrap { border-right: 0.09em solid var(--fontcolor)}";
   document.body.appendChild(css);
 };
+
+
+// Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial animation for the home section
+    gsap.from('.home-content .left-content', {
+      opacity: 0,
+      x: -100,
+      duration: 1,
+      delay: 0.5
+    });
+
+    gsap.from('.home-content .right-content', {
+      opacity: 0,
+      x: 100,
+      duration: 1,
+      delay: 0.5
+    });
+
+    // Personal Details Section Animation
+    gsap.from('.Personal-details', {
+      scrollTrigger: {
+        trigger: '.Personal-details',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1
+    });
+
+    // Animate each personal detail and education item
+    gsap.from('.details ul li, .Education ul li', {
+      scrollTrigger: {
+        trigger: '.Personal-details',
+        start: 'top 70%',
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.2
+    });
+
+    // Skills Section Animation
+    gsap.from('.skills', {
+      scrollTrigger: {
+        trigger: '.skills',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+      },
+      opacity: 0,
+      scale: 0.9,
+      duration: 1
+    });
+
+    // Animate skills items with stagger
+    gsap.from('.skills ul li', {
+      scrollTrigger: {
+        trigger: '.skills',
+        start: 'top 70%'
+      },
+      opacity: 0,
+      x: -50,
+      duration: 0.8,
+      stagger: 0.2
+    });
+
+    // Profiles Section Animation
+    gsap.from('.profiles h1', {
+      scrollTrigger: {
+        trigger: '.profiles',
+        start: 'top 80%'
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.8
+    });
+
+    // Animate social media links
+    gsap.from('.social-media a', {
+      scrollTrigger: {
+        trigger: '.social-media',
+        start: 'top 80%'
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.5,
+      stagger: 0.2
+    });
+
+    // About Me Section Animation
+    gsap.from('.About-me .top-info', {
+      scrollTrigger: {
+        trigger: '.About-me',
+        start: 'top 70%'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1
+    });
+
+    // What I Offer Section Animation
+    gsap.from('.what-i-offer', {
+      scrollTrigger: {
+        trigger: '.what-i-offer',
+        start: 'top 80%'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1
+    });
+
+    gsap.from('.what-i-offer ul li', {
+      scrollTrigger: {
+        trigger: '.what-i-offer',
+        start: 'top 75%'
+      },
+      opacity: 0,
+      x: -50,
+      duration: 0.8,
+      stagger: 0.3
+    });
+
+    // Work Together Section Animation
+    gsap.from('.work-together', {
+      scrollTrigger: {
+        trigger: '.work-together',
+        start: 'top 75%'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1
+    });
+
+    // Footer Animation
+    gsap.from('footer', {
+      scrollTrigger: {
+        trigger: 'footer',
+        start: 'top 90%'
+      },
+      opacity: 0,
+      y: 30,
+      duration: 1
+    });
+
+    // Navbar Animation (on scroll)
+    ScrollTrigger.create({
+      start: 'top -80',
+      onEnter: () => gsap.to('#navbar', {
+        backgroundColor: '#ffffff',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        duration: 0.3
+      }),
+      onLeaveBack: () => gsap.to('#navbar', {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+        duration: 0.3
+      })
+    });
